@@ -34,9 +34,12 @@ async function start() {
     exports.client = client;
     console.log("Client ready!");
     // load connections
-    const DiscordEventHandler = require("./src/net/discord/EventHandler.js"); await DiscordEventHandler.load();
+    const DiscordEventHandler = require("./src/net/discord/EventHandler"); await DiscordEventHandler.load();
     // load core modules
+    const CommandManager = require("./src/coremodules/commands/CommandManager"); await CommandManager.load();
     // load modules
-    const SuggestionManager = require("./src/modules/suggestions/SuggestionManager.js"); await SuggestionManager.load();
+    const SuggestionManager = require("./src/modules/suggestions/SuggestionManager"); await SuggestionManager.load();
+    const JoinManager = require("./src/modules/joins/JoinManager"); await JoinManager.load();
+    const PollManager = require("./src/modules/polls/PollManager"); await PollManager.load();
 }
 start();
